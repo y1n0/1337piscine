@@ -11,10 +11,6 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
-#define UPPER_START 65
-#define UPPER_END 90
-#define LOWER_START 97
-#define LOWER_END 122
 
 int	ft_str_is_alpha(char *str)
 {
@@ -24,7 +20,7 @@ int	ft_str_is_alpha(char *str)
 	{
 		c = *str;
 		// if (!(65 <= *str && *str <= 90 && 97 <= *str && *str <= 122))
-		if (!(('a' <= c && 'a' <= 'z') || ('A' <= c && c <= 'Z')))
+		if (!(('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z')))
 			return (0);
 		str++;
 	}
