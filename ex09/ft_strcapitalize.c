@@ -27,6 +27,13 @@ char	ft_char_upper(char c)
 	return (c);
 }
 
+char	ft_char_lower(char c)
+{
+	if ('A' <= c && c <= 'Z')
+		c = c + 32;
+	return (c);
+}
+
 char	*ft_strcapitalize(char *str)
 {
 	char	*orig_str;
@@ -37,9 +44,9 @@ char	*ft_strcapitalize(char *str)
 	while (*str)
 	{
 		if (upper_next == 1)
-		{
 			*str = ft_char_upper(*str);
-		}
+		else
+			*str = ft_char_lower(*str);
 		upper_next = 0;
 		if (ft_char_is_alphanumeric(*str) == 0)
 			upper_next = 1;
