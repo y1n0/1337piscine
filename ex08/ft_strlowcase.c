@@ -33,4 +33,3 @@ int	main(void)
 	b = ft_strlowcase(a);
 	printf("Hell You helo: %s", b);
 }
-
