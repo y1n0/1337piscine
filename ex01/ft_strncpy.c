@@ -22,15 +22,13 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 	dest_start = dest;
 	while (i++ < n)
 	{
-		if (*src == '\0' || fill_null == 1)
-			*dest = '\0';
-		else
+		if (*src)
 			*dest = *src;
+		else
+			*dest = '\0';
 		src++;
 		dest++;
 	}
-	if (fill_null == 0)
-		*dest = '\0';
 	return (dest_start);
 }
 
