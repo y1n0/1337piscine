@@ -25,16 +25,3 @@ int	ft_str_is_uppercase(char *str)
 	}
 	return (1);
 }
-
-int	main(void)
-{
-	printf("[empty] %d\n", ft_str_is_uppercase(""));
-	printf("AAA %d\n", ft_str_is_uppercase("AAA"));
-	printf("aaa %d\n", ft_str_is_uppercase("aaa"));
-	printf("123 %d\n", ft_str_is_uppercase("123"));
-	printf("aC %d\n", ft_str_is_uppercase("aC"));
-	printf("aacc23 %d\n", ft_str_is_uppercase("aacc23"));
-	printf("aac c23 %d\n", ft_str_is_uppercase("aac c23"));
-	printf("aac-c23 %d\n", ft_str_is_uppercase("aac-c23"));
-	printf("(*&*) %d\n", ft_str_is_uppercase("(*&*)"));
-}

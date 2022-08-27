@@ -24,11 +24,3 @@ char	*ft_strupcase(char *str)
 	}
 	return (orig_str);
 }
-
-int	main(void)
-{
-	char a[] = "hell Y\nou helo";
-	char *b;
-	b = ft_strupcase(a);
-	printf("%s: %s", a, b);
-}

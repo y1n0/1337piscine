@@ -25,16 +25,3 @@ int	ft_str_is_lowercase(char *str)
 	}
 	return (1);
 }
-
-int	main(void)
-{
-	printf("[empty] %d\n", ft_str_is_lowercase(""));
-	printf("AAA %d\n", ft_str_is_lowercase("AAA"));
-	printf("aaa %d\n", ft_str_is_lowercase("aaa"));
-	printf("123 %d\n", ft_str_is_lowercase("123"));
-	printf("aC %d\n", ft_str_is_lowercase("aC"));
-	printf("aacc23 %d\n", ft_str_is_lowercase("aacc23"));
-	printf("aac c23 %d\n", ft_str_is_lowercase("aac c23"));
-	printf("aac-c23 %d\n", ft_str_is_lowercase("aac-c23"));
-	printf("(*&*) %d\n", ft_str_is_lowercase("(*&*)"));
-}

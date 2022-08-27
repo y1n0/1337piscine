@@ -25,11 +25,3 @@ char	*ft_strlowcase(char *str)
 	}
 	return (orig_str);
 }
-
-int	main(void)
-{
-	char a[] = "Hell You helo";
-	char *b;
-	b = ft_strlowcase(a);
-	printf("Hell You helo: %s", b);
-}

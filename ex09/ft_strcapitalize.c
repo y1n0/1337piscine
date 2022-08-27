@@ -47,13 +47,3 @@ char	*ft_strcapitalize(char *str)
 	}
 	return (orig_str);
 }
-
-int	main(void)
-{
-	char	a[] = "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un\n";;
-	char	*b;
-	b = ft_strcapitalize(a);
-	printf("      in: salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un\n");
-	printf("     out: %s", a);
-	printf("expected: Salut, Comment Tu Vas ? 42mots Quarante-Deux; Cinquante+Et+Un\n");
-}

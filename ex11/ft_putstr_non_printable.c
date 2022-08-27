@@ -64,10 +64,3 @@ void	ft_putstr_non_printable(char *str)
 		str++;
 	}
 }
-
-int	main(void)
-{
-	// printf("Coucou\ntu vas bien ?");
-	// printf("\n====\n");
-	ft_putstr_non_printable("\?C\vou\acou\ntu vas\rbien\t?");
-}

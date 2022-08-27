@@ -24,16 +24,3 @@ int	ft_str_is_numeric(char *str)
 	}
 	return (1);
 }
-
-int	main(void)
-{
-	printf("[empty] %d\n", ft_str_is_numeric(""));
-	printf("AAA %d\n", ft_str_is_numeric("AAA"));
-	printf("aaa %d\n", ft_str_is_numeric("aaa"));
-	printf("123 %d\n", ft_str_is_numeric("123"));
-	printf("aC %d\n", ft_str_is_numeric("aC"));
-	printf("aacc23 %d\n", ft_str_is_numeric("aacc23"));
-	printf("aac c23 %d\n", ft_str_is_numeric("aac c23"));
-	printf("aac-c23 %d\n", ft_str_is_numeric("aac-c23"));
-	printf("(*&*) %d\n", ft_str_is_numeric("(*&*)"));
-}

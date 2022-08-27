@@ -25,17 +25,3 @@ int	ft_str_is_printable(char *str)
 	}
 	return (1);
 }
-
-int	main(void)
-{
-	printf("[empty] %d\n", ft_str_is_printable(""));
-	printf("AAA %d\n", ft_str_is_printable("AAA"));
-	printf("aaa %d\n", ft_str_is_printable("aaa"));
-	printf("123 %d\n", ft_str_is_printable("123"));
-	printf("aC %d\n", ft_str_is_printable("aC"));
-	printf("aacc23 %d\n", ft_str_is_printable("aacc23"));
-	printf("aa[\\n]cc23 %d\n", ft_str_is_printable("aa\ncc23"));
-	printf("aac c23 %d\n", ft_str_is_printable("aac c23"));
-	printf("aac-c23 %d\n", ft_str_is_printable("aac-c23"));
-	printf("(*&*) %d\n", ft_str_is_printable("(*&*)"));
-}
