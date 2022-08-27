@@ -15,10 +15,7 @@
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
 	unsigned int	i;
-	int flag_term;
-
-	if (size == 0)
-		return -1;
+	int				flag_term;
 
 	flag_term = 0;
 	i = 0;
@@ -26,7 +23,7 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 	{
 		if (*src == '\0')
 			flag_term = 1;
-		if (i < size - 1 && flag_term == 0)
+		if (i + 1 < size && flag_term == 0)
 		{
 			*dest = *src;
 			dest++;
