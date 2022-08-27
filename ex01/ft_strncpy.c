@@ -13,13 +13,9 @@
 #include <string.h>
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	char			*dest_start;
 	unsigned int	i;
-	int				fill_null;
 
 	i = 0;
-	fill_null = 0;
-	dest_start = dest;
 	while (i++ < n)
 	{
 		if (*src)
@@ -29,7 +25,7 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 		src++;
 		dest++;
 	}
-	return (dest_start);
+	return (dest);
 }
 
 int	main(void)
