@@ -69,5 +69,5 @@ int	main(void)
 {
 	// printf("Coucou\ntu vas bien ?");
 	// printf("\n====\n");
-	ft_putstr_non_printable("Coucou\ntu vas bien ?");
+	ft_putstr_non_printable("\?C\vou\acou\ntu vas\rbien\t?");
 }
