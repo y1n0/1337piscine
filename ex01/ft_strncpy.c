@@ -14,7 +14,7 @@
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
 	char	*dest_start;
-	int		i;
+	unsigned int		i;
 	int		fill_null;
 
 	i = 0;
@@ -43,13 +43,11 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 
 int	main(void)
 {
-	char	a[5];
+	char	a[6] = "hello";
 	char	b[10];
-	char	sa[5];
+	char	sa[6] = "hello";
 	char	sb[10];
 
-	a[5] = "hello";
-	sa[5] = "what";
 	ft_strncpy(b, a, 3);
 	printf("a %s\n", a);
 	printf("b %s\n", b);
