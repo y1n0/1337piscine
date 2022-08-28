@@ -32,6 +32,6 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 		i++;
 	}
 	if (size != 0)
-	*dest = '\0';
+		*dest = '\0';
 	return (i);
 }
