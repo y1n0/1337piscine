@@ -14,7 +14,7 @@
 
 int	ft_char_is_printable(char c)
 {
-	if (( 0 <= c && c <= 31 ) || c == 127)
+	if ((0 <= c && c <= 31) || c == 127)
 		return (0);
 	return (1);
 }
