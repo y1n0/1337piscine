@@ -13,8 +13,10 @@
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
 	unsigned int	i;
+	char *dest_origin;
 
 	i = 0;
+	dest_origin = dest;
 	while (i++ < n)
 	{
 		if (*src)
@@ -24,5 +26,5 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 		src++;
 		dest++;
 	}
-	return (dest);
+	return (dest_origin);
 }
