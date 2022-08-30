@@ -1,13 +1,17 @@
+
 #include <stdio.h>
 
 int ft_iterative_factorial(int nb)
 {
-	if ( nb < 0 )
+	int ret;
+	if (nb < 0)
 		return 0;
-	if ( nb <= 1 )
-		return 1;
-	return nb * ft_iterative_factorial( nb - 1);
-
+	ret = 1;
+	while ( nb > 1 )
+	{
+		ret *= nb--;
+	}
+	return ret;
 }
 
 int main()
@@ -16,3 +20,4 @@ int main()
 	printf("4! = %d\n", ft_iterative_factorial(4));
 
 }
+
