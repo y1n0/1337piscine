@@ -36,5 +36,7 @@ char	*ft_strstr(char *str, char *to_find)
 		}
 		str++;
 	}
+	if (*str != *to_find && *str == '\0')
+		return (NULL);
 	return (needle_head);
 }

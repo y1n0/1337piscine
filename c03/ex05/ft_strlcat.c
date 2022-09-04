@@ -13,31 +13,36 @@
 #include <stdio.h>
 #include <string.h>
 
+unsigned int	ft_strlen(char *str)
+{
+	char	*start;
+
+	start = str;
+	while (*str != '\0')
+		str++;
+	return (str - start);
+}
+
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	unsigned int	dest_initial_l;
+	unsigned int	dest_l;
+	unsigned int	src_l;
 	unsigned int	rem_size;
-	char			*src_head;
 
-	src_head = src;
-	dest_initial_l = 0;
-	while (*dest != '\0')
+	dest_l = ft_strlen(dest);
+	src_l = ft_strlen(src);
+	rem_size = size - dest_l - 1;
+	if (rem_size == 0)
+		return (src_l + dest_l);
+	if (size == 0 || size < dest_l)
+		return (src_l + size);
+	dest = dest + dest_l;
+	while (*src != '\0' && rem_size-- > 0)
 	{
-		dest_initial_l++;
+		*dest = *src;
 		dest++;
-	}
-	rem_size = size - dest_initial_l - 1;
-	if (size == 0 || size < dest_initial_l)
-		return (dest_initial_l + size);
-	while (*src != '\0')
-	{
-		if (rem_size-- > 0)
-		{
-			*dest = *src;
-			dest++;
-		}
 		src++;
 	}
 	*dest = '\0';
-	return (dest_initial_l + (src - src_head));
+	return (dest_l + src_l);
 }
