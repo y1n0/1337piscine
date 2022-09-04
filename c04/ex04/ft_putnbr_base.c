@@ -6,7 +6,7 @@
 /*   By: moel-idr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 20:27:29 by moel-idr          #+#    #+#             */
-/*   Updated: 2022/09/03 20:27:31 by moel-idr         ###   ########.fr       */
+/*   Updated: 2022/09/03 23:26:15 by moel-idr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	ft_validate(char *base)
 	return (1);
 }
 
-void	ft_putnbr(int nb, char *base)
+void	ft_putnbr_base(int nb, char *base)
 {
 	unsigned int	unb;
 
@@ -88,7 +88,6 @@ void	ft_putnbr(int nb, char *base)
 	ft_putnbr_unsigned(unb, base);
 }
 
-/*
 int	main(void)
 {
 	// ft_putnbr(16, "012345");
@@ -97,9 +96,8 @@ int	main(void)
 	// write(1, "\n", 1);
 	// printf("hay %d", ft_strstr("helo", 'e', 3));
 	// printf("hay %d", ft_strstr("helo", 'x', 3));
-	ft_putnbr(-2147483648, "0123456789abcdef");
-	ft_putnbr(2147483647, "0123456789abcdef");
-	ft_putnbr(-2147483648, "0123456789");
-	ft_putnbr(2147483647, "0123456789");
+	ft_putnbr_base(-2147483648, "0123456789abcdef");
+	ft_putnbr_base(2147483647, "0123456789abcdef");
+	ft_putnbr_base(-2147483648, "0123456789");
+	ft_putnbr_base(2147483647, "0123456789");
 }
-*/
