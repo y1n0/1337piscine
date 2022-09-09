@@ -1,22 +1,33 @@
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_sort_params.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: moel-idr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/09 09:42:23 by moel-idr          #+#    #+#             */
+/*   Updated: 2022/09/09 09:42:49 by moel-idr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 
-int ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
 	while (*s1 && *s2)
 	{
 		if (*s1 != *s2)
-			return *s1 - *s2;
+			return (*s1 - *s2);
 		s1++;
 		s2++;
 	}
-	return *s1 - *s2;
+	return (*s1 - *s2);
 }
 
-void ft_putstrln(char *str)
+void	ft_putstrln(char *str)
 {
-
 	while (*str)
 	{
 		write(1, str, 1);
@@ -25,11 +36,11 @@ void ft_putstrln(char *str)
 	write(1, "\n", 1);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	int i;
-	int nok;
-	char *tmp;
+	int		i;
+	int		nok;
+	char	*tmp;
 
 	nok = 1;
 	while (nok == 1)
@@ -38,20 +49,18 @@ int main(int argc, char **argv)
 		i = 1;
 		while (i < argc - 1)
 		{
-			if (ft_strcmp(argv[i], argv[i+1]) > 0)
+			if (ft_strcmp(argv[i], argv[i + 1]) > 0)
 			{
 				tmp = argv[i];
-				argv[i] = argv[i+1];
-				argv[i+1] = tmp;
+				argv[i] = argv[i + 1];
+				argv[i + 1] = tmp;
 				nok = 1;
 			}
 			i++;
 		}
 	}
-
 	i = 1;
 	while (i < argc)
 		ft_putstrln(argv[i++]);
-
-	return 0;
+	return (0);
 }
