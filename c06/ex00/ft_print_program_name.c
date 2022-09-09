@@ -15,10 +15,10 @@
 int	main(int argc, char **argv)
 {
 	(void)argc;
-	while (**argv)
+	while (*argv[0])
 	{
-		write(1, *argv, 1);
-		(*argv)++;
+		write(1, argv[0], 1);
+		argv[0]++;
 	}
 	return (0);
 }
