@@ -6,7 +6,7 @@
 /*   By: moel-idr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 13:27:00 by moel-idr          #+#    #+#             */
-/*   Updated: 2022/09/09 10:49:26 by moel-idr         ###   ########.fr       */
+/*   Updated: 2022/09/09 11:19:35 by moel-idr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	ft_atoi(char *str)
 		str_nbr++;
 	}
 	len = ft_strlen(str_nbr);
-	return (signed int)(ft_strnbr(str_nbr, len) * sign);
+	return ((signed int)(ft_strnbr(str_nbr, len) * sign));
 }
 
 /*
