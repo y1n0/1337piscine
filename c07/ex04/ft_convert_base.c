@@ -24,7 +24,7 @@ int	ft_dig_value(char *dig, char *base)
 	while (*base != '\0')
 	{
 		if (*dig == *base)
-			return val;
+			return (val);
 		val++;
 		base++;
 	}
@@ -55,7 +55,6 @@ char	*ft_char_atoi(char *str, char *base)
 		*--n_start = '-';
 	return (n_start);
 }
-
 
 int	ft_strnbr(char *str, int len, char *base, int base_len)
 {
@@ -97,11 +96,11 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	return (ft_itoa_base(int_from, base_to));
 }
 
+/*
 int	main(int argc, char *argv[])
 {
-	printf("%s %s %d \n\n", argv[1], argv[2], ft_dig_value(argv[1], argv[2]) );
 	if (argc == 4)
 		printf("%s\n", ft_convert_base(argv[1], argv[2], argv[3]));
 	else
 		printf("need args\n");
-}
+}*/
