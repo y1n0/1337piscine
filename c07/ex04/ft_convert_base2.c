@@ -1,9 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_convert_base2.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: moel-idr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/09 20:38:48 by moel-idr          #+#    #+#             */
+/*   Updated: 2022/09/09 20:38:48 by moel-idr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <stdio.h>
-#include <unistd.h>
 #include <stdlib.h>
-
-// ft_itoa_base
+#include <unistd.h>
 
 int	ft_strstr(char *haystack, char needle, int end)
 {
@@ -26,50 +35,20 @@ int	ft_strlen(char *str)
 	return (str - str_start - 1);
 }
 
-int	ft_pow(int base, int exponent)
+char *ft_putnbr_unsigned(char *dest, unsigned int nb, char *base, int nb_len)
 {
-	int	res;
-
-	res = base;
-	while (exponent > 1)
-	{
-		res *= base;
-		exponent--;
-	}
-	return (res);
-}
-
-
-void	ft_putnbr_unsigned(char *dest, unsigned int nb, char *base)
-{
-	unsigned int	base_n;
-	int position;
-	unsigned int ldig;
-
-	base_n = (unsigned)ft_strlen(base);
-
-	while ( nb >= 0 )
-	{
-		printf("%d\n", nb); 
-		ldig = nb;
-		position = 0;
-		while (ldig >= base_n)
-		{
-			ldig = ldig / base_n;
-			position++;
-		}
-			
-
-		if (nb < base_n)
-		{
-			nb = nb - ldig * ft_pow(base_n, position);
-			*dest++ = base[ldig];
-			break;
-		}
-		nb = nb - ldig * ft_pow(base_n, position);
-		*dest++ = base[ldig];
-	}
-			*dest++ = '\0';
+    int i;
+    unsigned int base_len;
+    base_len = ft_strlen(base);
+    dest += nb_len + 1;
+    *(--dest) = '\0';
+    i = -1;
+    while ( ++i < nb_len )
+    {
+        *(--dest) = base[nb % base_len];
+        nb = nb / base_len;
+    }
+    return dest;
 }
 
 int	ft_validate(char *base)
@@ -91,10 +70,9 @@ int	ft_validate(char *base)
 	return (1);
 }
 
-
-int ft_intlen_base(int nb, int base_len)
+int	ft_intlen_base(int nb, int base_len)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	while (0 != (nb /= base_len))
@@ -105,14 +83,13 @@ int ft_intlen_base(int nb, int base_len)
 char	*ft_itoa_base(int nb, char *base)
 {
 	unsigned int	unb;
-	char *ret;
-	int siz;
+	char			*ret;
+	int				siz;
 
 	siz = ft_intlen_base(nb, ft_strlen(base));
-
-	ret = (char *) malloc(siz + 2);
+	ret = (char *)malloc(siz + 2);
 	if (ft_validate(base) == 0)
-		return NULL;
+		return (NULL);
 	if (nb < 0)
 	{
 		*ret++ = '-';
@@ -120,15 +97,14 @@ char	*ft_itoa_base(int nb, char *base)
 	}
 	else
 		unb = (unsigned int)nb;
-
-	ft_putnbr_unsigned(ret, unb, base);
-	printf("==%s==\n", ret);
-	return ret;
+	return ft_putnbr_unsigned(ret, unb, base, siz);
 }
 
 /*
 int	main(void)
 {
+	int	d;
+
 	// ft_putnbr(16, "012345");
 	// write(1, "\n", 1);
 	// ft_putnbr(-16, "0123");
@@ -139,7 +115,6 @@ int	main(void)
 	//ft_putnbr_base(2147483647, "0123456789abcdef");
 	//ft_putnbr_base(-2147483648, "0123456789");
 	//ft_putnbr_base(2147483647, "0123456789");
-	int d;
 	char *s1, *s2;
 	d = 237433999; s1 = ft_itoa_base(d, "0123456789");
 	d = 0x238ad9; s2 = ft_itoa_base(d, "0123456789abcdef");

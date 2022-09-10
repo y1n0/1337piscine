@@ -1,26 +1,34 @@
-#include <stdio.h>
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_convert_base.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: moel-idr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/09 20:35:44 by moel-idr          #+#    #+#             */
+/*   Updated: 2022/09/09 20:35:44 by moel-idr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
 
+int		ft_strlen(char *str);
+char	*ft_itoa_base(int nb, char *base);
+
 int	ft_dig_value(char *dig, char *base)
 {
 	int	val;
-	int	found;
 
 	val = 0;
-	found = 0;
-	while (*dig != *base++ && *base != '\0')
+	while (*base != '\0')
 	{
 		if (*dig == *base)
-			found = 1;
+			return val;
 		val++;
+		base++;
 	}
-	if (found == 1)
-		return (val);
-	else
-		return (-1);
+	return (-1);
 }
 
 char	*ft_char_atoi(char *str, char *base)
@@ -28,8 +36,8 @@ char	*ft_char_atoi(char *str, char *base)
 	int		sign;
 	char	*n_start;
 
-	while (*str == ' ' || *str == '\t' || *str == '\n'
-		|| *str == '\v' || *str == '\f' || *str == '\r')
+	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\v'
+		|| *str == '\f' || *str == '\r')
 		str++;
 	sign = 1;
 	while (*str == '-' || *str == '+')
@@ -48,17 +56,6 @@ char	*ft_char_atoi(char *str, char *base)
 	return (n_start);
 }
 
-int	ft_strlen(char *str);
-/*
-{
-	char	*str_start;
-
-	str_start = str;
-	while (*str++ != '\0')
-		;
-	return (str - str_start - 1);
-}
-*/
 
 int	ft_strnbr(char *str, int len, char *base, int base_len)
 {
@@ -92,22 +89,19 @@ int	ft_atoi_base(char *str, char *base)
 	return (ft_strnbr(str_nbr, len, base, base_len) * sign);
 }
 
-
-char    *ft_itoa_base(int nb, char *base);
-
-char *ft_convert_base(char *nbr, char *base_from, char *base_to)
+char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
-	int int_from;
+	int	int_from;
 
 	int_from = ft_atoi_base(nbr, base_from);
-	
-	return ft_itoa_base(int_from, base_to);
+	return (ft_itoa_base(int_from, base_to));
 }
 
-
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
-	if (argc != 4)
+	printf("%s %s %d \n\n", argv[1], argv[2], ft_dig_value(argv[1], argv[2]) );
+	if (argc == 4)
+		printf("%s\n", ft_convert_base(argv[1], argv[2], argv[3]));
+	else
 		printf("need args\n");
-	printf("%s\n", ft_convert_base(argv[1], argv[2], argv[3]));
 }
