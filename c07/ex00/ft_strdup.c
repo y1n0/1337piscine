@@ -29,9 +29,3 @@ char	*ft_strdup(char *src)
 		dest[i] = src[i];
 	return (dest);
 }
-
-int	main(void)
-{
-	printf("hello: %s\n", strdup("hello"));
-	printf("hello: %s\n", ft_strdup("hello"));
-}

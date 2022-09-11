@@ -6,7 +6,7 @@
 /*   By: moel-idr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 12:27:56 by moel-idr          #+#    #+#             */
-/*   Updated: 2022/09/10 12:27:56 by moel-idr         ###   ########.fr       */
+/*   Updated: 2022/09/10 19:24:53 by moel-idr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	ft_ultimate_range(int **range, int min, int max)
 		return (0);
 	}
 	*range = (int *)malloc(sizeof(int) * (max - min));
+	if (*range == NULL)
+		return (-1);
 	i = 0;
 	while (i < max - min)
 	{
@@ -30,17 +32,4 @@ int	ft_ultimate_range(int **range, int min, int max)
 		i++;
 	}
 	return (max - min);
-}
-
-int	main(void)
-{
-	int	*t;
-	int	ret;
-
-	t = NULL;
-	ret = ft_ultimate_range(&t, 40, 52);
-	if (t == NULL)
-		return (1);
-	while (*t)
-		printf("%d \n", (*t++));
 }

@@ -11,10 +11,12 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 
 int		ft_strlen(char *str);
 char	*ft_itoa_base(int nb, char *base);
+int		ft_validate(char *base);
 
 int	ft_dig_value(char *dig, char *base)
 {
@@ -34,26 +36,24 @@ int	ft_dig_value(char *dig, char *base)
 char	*ft_char_atoi(char *str, char *base)
 {
 	int		sign;
-	char	*n_start;
+	char	*ret;
+	char	*r_start;
 
+	ret = (char *)malloc(sizeof(char) * (ft_strlen(str) + 1));
+	r_start = ret;
 	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\v'
 		|| *str == '\f' || *str == '\r')
 		str++;
 	sign = 1;
 	while (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
+		if (*str++ == '-')
 			sign *= -1;
-		str++;
-	}
-	n_start = str;
-	while (ft_dig_value(str, base) > -1)
-		str++;
-	if (*str)
-		*str = '\0';
 	if (sign == -1)
-		*--n_start = '-';
-	return (n_start);
+		*ret++ = '-';
+	while (ft_dig_value(str, base) > -1)
+		*ret++ = *str++;
+	*ret = '\0';
+	return (r_start);
 }
 
 int	ft_strnbr(char *str, int len, char *base, int base_len)
@@ -92,15 +92,8 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
 	int	int_from;
 
+	if (ft_validate(base_to) == 0 || ft_validate(base_from) == 0)
+		return (NULL);
 	int_from = ft_atoi_base(nbr, base_from);
 	return (ft_itoa_base(int_from, base_to));
 }
-
-/*
-int	main(int argc, char *argv[])
-{
-	if (argc == 4)
-		printf("%s\n", ft_convert_base(argv[1], argv[2], argv[3]));
-	else
-		printf("need args\n");
-}*/

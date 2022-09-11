@@ -36,7 +36,9 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	while (++i < size)
 		siz += ft_strlen(strs[i]);
 	siz += sep_siz * (size - 1);
-	ret = (char *)malloc(siz + 1);
+	if (size == 0 || siz < 0)
+		siz = 0;
+	ret = (char *)malloc(sizeof(char) * (siz + 1));
 	i = -1;
 	while (++i < size)
 	{
@@ -50,14 +52,33 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	return (ret - siz);
 }
 
-/*
-int	main(int argc, char *argv[])
-{
-	char	*joined;
 
-	{
-		joined = ft_strjoin(argc, argv, "||");
-		printf("argc: %d sep: %s result:\n%s\n", argc, "||", joined);
-	}
+int main(void)
+{
+    {
+        char *strs[6] = {
+            "I",
+            "am",
+            "learning",
+            "c",
+            "programing",
+            "language",
+        };
+        char *res = ft_strjoin(6, strs, ",");
+        printf("$%s$ size:%lu", res, sizeof(res));
+        printf("\n");
+        free(res);
+    }
+    {
+        char *strs[0] = {};
+        char *res = ft_strjoin(0, strs, ",");
+        printf("$%s$ size:%lu", res, sizeof(res));
+        printf("\n");
+    }
+    {
+        char *strs[1] = {"Hey"};
+        char *res = ft_strjoin(0, strs, ",");
+        printf(" %s$ size:%lu", res, sizeof(res));
+        printf("\n");
+    }
 }
-*/
