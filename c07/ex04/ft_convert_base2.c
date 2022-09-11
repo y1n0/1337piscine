@@ -91,8 +91,11 @@ char	*ft_itoa_base(int nb, char *base)
 	{
 		*ret++ = '-';
 		unb = (unsigned int)-nb;
+		return (ft_putnbr_unsigned(ret, unb, base, siz) - 1);
 	}
 	else
+	{
 		unb = (unsigned int)nb;
-	return (ft_putnbr_unsigned(ret, unb, base, siz));
+		return (ft_putnbr_unsigned(ret, unb, base, siz));
+	}
 }
