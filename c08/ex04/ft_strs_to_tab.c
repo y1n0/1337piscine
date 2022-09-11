@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 #include "ft_stock_str.h"
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 int	ft_strlen(char *str)
 {
@@ -40,11 +40,10 @@ char	*ft_strdup(char *src)
 	return (dest);
 }
 
-t_stock_str	*ft_strs_to_tab(int ac, char **av)
+struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 {
-	int					i;
+	int			i;
 	t_stock_str	*list;
-
 
 	list = (t_stock_str *)malloc(sizeof(t_stock_str) * (ac + 1));
 	i = -1;
@@ -54,13 +53,12 @@ t_stock_str	*ft_strs_to_tab(int ac, char **av)
 		list[i].str = av[i];
 		list[i].copy = ft_strdup(av[i]);
 	}
-	*(list[i].str) = '\0';
-
-	return list;
+	list[i].str = 0;
+	return (list);
 }
 
-int	main(int argc, char **argv)
-{
-	ft_strs_to_tab(argc, argv);
-	return (0);
-}
+// int	main(int argc, char **argv)
+// {
+// 	ft_strs_to_tab(argc, argv);
+// 	return (0);
+// }
