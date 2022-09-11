@@ -51,34 +51,3 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	*ret = '\0';
 	return (ret - siz);
 }
-
-
-int main(void)
-{
-    {
-        char *strs[6] = {
-            "I",
-            "am",
-            "learning",
-            "c",
-            "programing",
-            "language",
-        };
-        char *res = ft_strjoin(6, strs, ",");
-        printf("$%s$ size:%lu", res, sizeof(res));
-        printf("\n");
-        free(res);
-    }
-    {
-        char *strs[0] = {};
-        char *res = ft_strjoin(0, strs, ",");
-        printf("$%s$ size:%lu", res, sizeof(res));
-        printf("\n");
-    }
-    {
-        char *strs[1] = {"Hey"};
-        char *res = ft_strjoin(0, strs, ",");
-        printf(" %s$ size:%lu", res, sizeof(res));
-        printf("\n");
-    }
-}

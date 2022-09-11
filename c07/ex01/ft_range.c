@@ -26,4 +26,3 @@ int	*ft_range(int min, int max)
 		range[i] = min + i;
 	return (range);
 }
-
